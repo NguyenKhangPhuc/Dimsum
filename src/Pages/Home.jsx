@@ -2,36 +2,79 @@ import React from 'react'
 import Navbar from '../Components/Navbar'
 import { useState } from 'react'
 import axios from 'axios'
+import Slide from '../Components/Slide'
+import { main_topic } from '../constants'
+import { small_meals } from '../constants'
 function Home() {
-    const [urlValue, setUrlValue] = useState("")
-    const handleSubmit = () => {
-
-    }
+    const maxLength = 120
     return (
-        <div className='w-full flex flex-col items-center'>
+        <div className=''>
             <Navbar />
-            <div className='w-1/2 p-5 shadow-gray-500 shadow-lg mt-20 flex flex-col items-center gap-1'>
-                <div className='w-5/6 h-[60px] border-gray-500 border-2 rounded-xl flex justify-center'>
-                    <input
-                        type='text'
-                        placeholder='Enter your url'
-                        className='w-11/12 outline-none h-full placeholder:font-bold placeholder:italic placeholder:text-indigo-400'
-                        onChange={(e) => setUrlValue(e.target.value)}
-                    />
+            <Slide />
+            <div className='w-full h-auto bg-red-100 mt-20 flex-col'>
+                <div className='w-full h-[100px] flex justify-center items-center font-bold text-[25px] text-green-800 bg-red-300'>
+                    Thực Đơn
                 </div>
-                <button class="mt-3 relative border hover:border-sky-600 duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 w-56 rounded-md bg-sky-800 p-2 flex justify-center items-center font-extrabold">
-                    <div class="absolute z-10 w-48 h-48 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-900 delay-150 group-hover:delay-75"></div>
-                    <div class="absolute z-10 w-40 h-40 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-800 delay-150 group-hover:delay-100"></div>
-                    <div class="absolute z-10 w-32 h-32 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-700 delay-150 group-hover:delay-150"></div>
-                    <div class="absolute z-10 w-24 h-24 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-600 delay-150 group-hover:delay-200"></div>
-                    <div class="absolute z-10 w-16 h-16 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-500 delay-150 group-hover:delay-300"></div>
-                    <p class="z-10">Submit</p>
-                </button>
+                <div className='w-full h-auto flex justify-center gap-10'>
+                    <div className='w-1/5 h-[300px] bg-green-200 border border-gray-300 rounded-lg flex flex-col items-center justify-center gap-2'>
+                        {main_topic?.map((ele, index) => {
+                            return (
+                                <div className='w-5/6 h-1/6 flex items-center rounded-lg border-b border-dotted border-gray-300 pl-3 hover:text-red-700 hover:border-red-900 duration-300 cursor-pointer'>
+                                    {ele.title}
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className='w-2/5 h-auto bg-violet-100 border border-gray-300 rounded-lg'>
+                        <div>
+                            <div className='w-full h-[70px] bg-gray-400 text-[20px] flex items-center justify-center border-b border-gray-300'>Điểm Tâm</div>
+                            {small_meals?.map((ele, index) => {
+                                return (
+                                    <div className='w-full h-[150px] bg-orange-300 flex justify-center items-center gap-2 border-b border-gray-300'>
+                                        <img src={ele.image} className='w-1/6 h-3/4'></img>
+                                        <div className='w-3/4 bg-gray-300 h-3/4'>
+                                            <div className='w-auto h-1/4 text-[18px] text-green-600 font-light'>
+                                                {ele.title}
+                                            </div>
+                                            <div className='h-1/2 text-[16px] font-light'>
+                                                {ele.description.slice(0, maxLength)}...
+                                            </div>
+                                            <div className='w-full bg-red-200 flex justify-between items-center'>
+                                                <div className='font-lighter text-[16px] text-red-800'>
+                                                    {ele.price}₫
+                                                </div>
+                                                <button
+                                                    title="Add New"
+                                                    class="group cursor-pointer outline-none hover:rotate-90 duration-300"
+                                                >
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="30px"
+                                                        height="30px"
+                                                        viewBox="0 0 24 24"
+                                                        class="stroke-zinc-500 fill-none group-hover:fill-green-800 group-active:stroke-zinc-100 group-hover:stroke-zinc-100 group-active:fill-zinc-600 group-active:duration-0 duration-300"
+                                                    >
+                                                        <path
+                                                            d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                                                            stroke-width="1.5"
+                                                        ></path>
+                                                        <path d="M8 12H16" stroke-width="1.5"></path>
+                                                        <path d="M12 16V8" stroke-width="1.5"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div className='w-1/4 h-[300px] bg-orange-100'>
 
-
-
-                <p className='mt-2 font-serif italic text-[14px]'>URL SHORTENER is a free tool to shorten URLs and generate short links</p>
-                <p className='font-serif italic text-[14px]'>URL SHORTENER allows to create a shortened link making it easy to share</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
