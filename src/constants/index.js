@@ -340,4 +340,4 @@ const slide_imgs = [
     { image: slide_4, link: "san-pham" },
 ]
 
-export { navBar, main_topic, small_meals, vegetarian_meals, rice_meals, drinks, slide_imgs };
+export { navBar, main_topic, small_meals, noodles_meals, vegetarian_meals, rice_meals, drinks, slide_imgs };

@@ -41,7 +41,7 @@ import fanta_390ml from "./drinks/fanta_390ml.webp"
 import sprite_1l5 from "./drinks/sprite_1l5.webp"
 import sprite_390ml from "./drinks/sprite_390ml.webp"
 
-
+import pencil from "./but_icon.png"
 export {
     slide_1,
     slide_2,
@@ -80,4 +80,5 @@ export {
     fanta_390ml,
     sprite_1l5,
     sprite_390ml,
+    pencil,
 };
