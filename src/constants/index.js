@@ -47,11 +47,11 @@ const navBar = [
 ]
 
 const main_topic = [
-    { title: "Điểm tâm", link: "trang-chu" },
-    { title: "Cháo", link: "trang-chu" },
-    { title: "Cơm", link: "trang-chu" },
-    { title: "Món chay", link: "trang-chu" },
-    { title: "Nước uống", link: "trang-chu" },
+    { title: "Điểm tâm", link: "small_meals" },
+    { title: "Cháo - Hủ tiếu - Mì", link: "noodles_meals" },
+    { title: "Cơm", link: "rices" },
+    { title: "Món chay", link: "vegetarian_meals" },
+    { title: "Nước uống", link: "drinks" },
 ]
 
 const small_meals = [
