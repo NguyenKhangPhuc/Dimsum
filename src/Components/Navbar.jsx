@@ -1,8 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { navBar } from '../constants'
-
+export const handleNavBarNavigation = (link, navigate) => {
+    navigate(`/${link}`)
+}
 function Navbar() {
+    const navigate = useNavigate()
     return (
         <div className='w-full h-auto'>
             <div
@@ -14,7 +17,12 @@ function Navbar() {
                 <div className='w-2/5 flex gap-5 cursor-pointer justify-center'>
                     {navBar?.map((ele, index) => {
                         return (
-                            <div className='text-[17px] font-medium hover:text-green-700 duration-300'>{ele.title}</div>
+                            <div
+                                className='text-[17px] font-medium hover:text-green-700 duration-300'
+                                onClick={() => handleNavBarNavigation(ele.link, navigate)}
+                            >
+                                {ele.title}
+                            </div>
                         )
                     })}
                 </div>

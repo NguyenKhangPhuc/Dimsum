@@ -8,6 +8,8 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
     let [productIndex, setProductIndex] = useState(0)
 
     const handleTurnOffExpanded = () => {
+        //Set isExpanded to false to delete the popped up 
+        //product detail window.
         isExpanded = false
         setIsExpanded(isExpanded)
         console.log(isExpanded)
@@ -16,6 +18,8 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
     const ProductDetail = ({ item }) => {
         let [customerNote, setCustomerNote] = useState("")
         const handleAddProduct = (product, note) => {
+            //Get the product that the user has chosen, and add it
+            //into the cart while calculate the totalprice of the products the cart.
             totalPrice += parseFloat(product.price)
             setTotalPrice(totalPrice)
             const new_product = { ...product, note: note }
@@ -44,7 +48,7 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
                     <div className='w-11/12 mt-4 text-[18px] font-light '>{item.description}</div>
 
                     <div className='w-11/12 h-1/6  mt-10 flex items-center border border-gray-500 gap-4'>
-                        <img src={pencil} className='h-full w-[20px] h-[20px] ml-4' />
+                        <img src={pencil} className='w-[25px] h-[25px] ml-4 opacity-50' />
                         <input type='text' placeholder='Thêm ghi chú' className='w-5/6 h-full focus:outline-none' onChange={(e) => setCustomerNote(e.target.value)} />
                     </div>
 
@@ -63,6 +67,8 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
     }
 
     const handleExpanded = (index) => {
+        //Set the chosen product's index
+        //and set isExpanded to true to pop up a product detail window.
         isExpanded = true
         setIsExpanded(isExpanded)
         setProductIndex(index)
@@ -71,12 +77,12 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
 
 
     return (
-        <div className='flex flex-col' onClick={() => console.log(id)}>
+        <div className='w-full h-auto flex flex-col' onClick={() => console.log(id)}>
             <div className='w-full h-[70px] bg-gray-400 text-[20px] flex items-center justify-center border-b border-gray-300' id={id}>{title}</div>
             {product?.map((ele, index) => {
                 return (
                     <>
-                        <div className='w-full h-[150px] bg-orange-300 flex justify-center items-center gap-2 border-b border-gray-300 cursor-pointer' onClick={() => handleExpanded(index)}>
+                        <div className='w-full min-h-[150px] bg-orange-300 flex justify-center items-center gap-2 border-b border-gray-300 cursor-pointer' onClick={() => handleExpanded(index)}>
                             <img src={ele.image} className='w-1/6 h-3/4'></img>
                             <div className='w-3/4 bg-gray-300 h-3/4'>
                                 <div className='w-auto h-1/4 text-[18px] text-green-600 font-light'>

@@ -40,10 +40,19 @@ import {
 
 } from "../assets"
 const navBar = [
-    { title: "TRANG CHỦ", link: "trang-chu" },
+    { title: "TRANG CHỦ", link: "" },
     { title: "SẢN PHẨM", link: "san-pham" },
     { title: "GIỚI THIỆU", link: "gioi-thieu" },
     { title: "LIÊN HỆ", link: "lien-he" },
+]
+
+const policy = [
+    { title: "Tìm kiếm", link: "" },
+    { title: "Giới thiệu", link: "gioi-thieu" },
+    { title: "Chính sách đổi trả", link: "chinh-sach-doi-tra" },
+    { title: "Chính sách bảo mật", link: "chinh-sach-bao-mat" },
+    { title: "Điều khoản dịch vụ", link: "lien-he" },
+    { title: "Liên hệ", link: "lien-he" },
 ]
 
 const main_topic = [
@@ -340,4 +349,4 @@ const slide_imgs = [
     { image: slide_4, link: "san-pham" },
 ]
 
-export { navBar, main_topic, small_meals, noodles_meals, vegetarian_meals, rice_meals, drinks, slide_imgs };
+export { navBar, main_topic, small_meals, noodles_meals, vegetarian_meals, rice_meals, drinks, slide_imgs, policy };

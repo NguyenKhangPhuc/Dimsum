@@ -5,6 +5,9 @@ function Menu() {
     let [totalPrice, setTotalPrice] = useState(0)
     let [cart, setCart] = useState([])
     const handleDeleteCartProduct = (i) => {
+        //Delete the chosen product with Filter method
+        //return the product that do not have the same index
+        //as the chosen product. Calculate the total price.
         totalPrice -= parseFloat(cart[i].price)
         setTotalPrice(totalPrice)
         const deletedCart = cart.filter((ele, index) => {
@@ -13,7 +16,7 @@ function Menu() {
         setCart(deletedCart)
     }
     return (
-        <div className='w-full h-auto bg-red-100 mt-20 flex-col'>
+        <div className='w-full h-auto bg-red-100 mt-20 flex-col pb-20'>
             <div className='w-full h-[100px] flex justify-center items-center font-bold text-[25px] text-green-800 bg-red-300'>
                 Thực Đơn
             </div>
@@ -41,13 +44,15 @@ function Menu() {
                     <div className='sticky top-20 z-0 w-full auto flex flex-col items-center border border-gray-300 rounded-lg'>
                         {cart.length != 0 ? cart?.map((ele, index) => {
                             return (
-                                <div className='w-11/12 min-h-[130px] flex flex-col border-b border-gray-500'>
+                                <div className='w-11/12 min-h-[120px] flex flex-col border-b border-gray-500 justify-center'>
                                     <div className='w-full h-auto flex justify-between'>
                                         <div className='text-[20px] text-green-700 font-bold pb-1'>{ele.title}</div>
                                         <div className='text-[18px] text-red-600 font-bold'>{ele.price}₫</div>
                                     </div>
                                     <div className='text-[18px] font-light'>{ele.size}</div>
-                                    <div className='w-1/2 flex flex-wrap text-red-400'>{ele.note}</div>
+                                    <div className="w-1/2 flex flex-wrap text-red-400 break-all ">
+                                        {ele.note}
+                                    </div>
                                     <div className='w-full flex justify-end'>
                                         <button
                                             class="inline-flex items-center px-4 py-2 bg-red-600 transition ease-in-out delay-75 hover:bg-red-700 text-white text-sm font-medium rounded-md hover:-translate-y-1 hover:scale-110"

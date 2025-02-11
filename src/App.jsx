@@ -6,6 +6,7 @@ import Introduction from './Pages/Introduction'
 import Contact from './Pages/Contact'
 import Login from './Pages/Login'
 import Register from './Pages/Register'
+import Policy_1 from './Pages/Policy_1'
 export const url = "http://localhost:4000/"
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/lien-he' element={<Contact />}></Route>
         <Route path='/dang-nhap' element={<Login />}></Route>
         <Route path='/dang-ky' element={<Register />}></Route>
+        <Route path='/chinh-sach-doi-tra' element={<Policy_1 />}></Route>
       </Routes>
     </BrowserRouter>
   )

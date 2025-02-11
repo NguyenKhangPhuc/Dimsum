@@ -42,6 +42,9 @@ import sprite_1l5 from "./drinks/sprite_1l5.webp"
 import sprite_390ml from "./drinks/sprite_390ml.webp"
 
 import pencil from "./but_icon.png"
+
+import poster from "./poster.jpg"
+import explore from "./explore.jpg"
 export {
     slide_1,
     slide_2,
@@ -81,4 +84,6 @@ export {
     sprite_1l5,
     sprite_390ml,
     pencil,
+    poster,
+    explore,
 };
