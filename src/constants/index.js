@@ -47,11 +47,10 @@ const navBar = [
 ]
 
 const policy = [
-    { title: "Tìm kiếm", link: "" },
     { title: "Giới thiệu", link: "gioi-thieu" },
     { title: "Chính sách đổi trả", link: "chinh-sach-doi-tra" },
     { title: "Chính sách bảo mật", link: "chinh-sach-bao-mat" },
-    { title: "Điều khoản dịch vụ", link: "lien-he" },
+    { title: "Điều khoản dịch vụ", link: "dieu-khoan-dich-vu" },
     { title: "Liên hệ", link: "lien-he" },
 ]
 
