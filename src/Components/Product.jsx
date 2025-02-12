@@ -83,8 +83,8 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
                 return (
                     <>
                         <div className='w-full min-h-[150px] bg-orange-300 flex justify-center items-center gap-2 border-b border-gray-300 cursor-pointer' onClick={() => handleExpanded(index)}>
-                            <img src={ele.image} className='w-1/6 h-3/4'></img>
-                            <div className='w-3/4 bg-gray-300 h-3/4'>
+                            <img src={ele.image} className='w-1/6 '></img>
+                            <div className='w-3/4 bg-gray-300 '>
                                 <div className='w-auto h-1/4 text-[18px] text-green-600 font-light'>
                                     {ele.title}
                                 </div>

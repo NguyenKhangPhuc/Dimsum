@@ -42,6 +42,8 @@ import sprite_1l5 from "./drinks/sprite_1l5.webp"
 import sprite_390ml from "./drinks/sprite_390ml.webp"
 
 import pencil from "./but_icon.png"
+import profile from "./profile.png"
+import search from "./search.png"
 
 import poster from "./poster.jpg"
 import explore from "./explore.jpg"
@@ -86,4 +88,6 @@ export {
     pencil,
     poster,
     explore,
+    profile,
+    search,
 };

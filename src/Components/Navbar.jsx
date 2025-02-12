@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { navBar } from '../constants'
+import { profile, search } from '../assets'
 export const handleNavBarNavigation = (link, navigate) => {
     navigate(`/${link}`)
 }
@@ -27,9 +28,15 @@ function Navbar() {
                     })}
                 </div>
                 <div className='w-1/3 flex justify-center gap-3 '>
-                    <div className=''>icon1</div>
-                    <div className=''>icon1</div>
-                    <div className=''>icon1</div>
+                    <img
+                        src={search}
+                        className='w-[30px] h-[30px] ml-4 hover:w-[35px] hover:h-[35px] duration-300 cursor-pointer'
+                    />
+                    <img
+                        src={profile}
+                        className='w-[30px] h-[30px] ml-4 hover:w-[35px] hover:h-[35px] duration-300 cursor-pointer'
+                        onClick={() => handleNavBarNavigation("dang-nhap", navigate)}
+                    />
                 </div>
             </div>
         </div>
