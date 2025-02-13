@@ -1,15 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { main_topic, small_meals, noodles_meals, rice_meals, vegetarian_meals, drinks } from '../constants'
 import Product from './Product'
+import { Container, url } from '../App'
+import axios from 'axios'
 function Menu() {
-    let [totalPrice, setTotalPrice] = useState(0)
-    let [cart, setCart] = useState([])
-    const handleDeleteCartProduct = (i) => {
+    let { totalPrice, setTotalPrice } = useContext(Container)
+    let { userID, setUserID } = useContext(Container)
+    let { cart, setCart } = useContext(Container)
+
+    const handleDeleteCartProduct = async (i) => {
         //Delete the chosen product with Filter method
         //return the product that do not have the same index
         //as the chosen product. Calculate the total price.
         totalPrice -= parseFloat(cart[i].price)
         setTotalPrice(totalPrice)
+        if (userID) {
+            await axios.post(url + "delete-product", { productIndex: i, userID })
+                .then((result) => {
+                    console.log(result)
+                })
+                .catch(err => console.log(err))
+        }
         const deletedCart = cart.filter((ele, index) => {
             return index != i
         })

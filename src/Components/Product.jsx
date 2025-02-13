@@ -1,33 +1,56 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { pencil } from '../assets'
+import { Container, url } from '../App'
+import axios from 'axios'
+import { handleNavBarNavigation } from './Navbar'
+import { useNavigate } from 'react-router-dom'
 
 function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice }) {
     const MAXLENGTH = 120
-
+    let [productView, setProductView] = useState(2)
     let [isExpanded, setIsExpanded] = useState(false)
     let [productIndex, setProductIndex] = useState(0)
+    let [expandProduct, setExpandProduct] = useState(false)
 
     const handleTurnOffExpanded = () => {
         //Set isExpanded to false to delete the popped up 
         //product detail window.
         isExpanded = false
         setIsExpanded(isExpanded)
-        console.log(isExpanded)
+    }
+
+    const handleExpandProduct = () => {
+        setProductView(product.length)
+        setExpandProduct(true)
     }
 
     const ProductDetail = ({ item }) => {
+        const navigate = useNavigate()
+        let { userID, setUserID } = useContext(Container)
         let [customerNote, setCustomerNote] = useState("")
-        const handleAddProduct = (product, note) => {
+        const handleAddProduct = async (singleProduct, note) => {
             //Get the product that the user has chosen, and add it
             //into the cart while calculate the totalprice of the products the cart.
-            totalPrice += parseFloat(product.price)
+            totalPrice += parseFloat(singleProduct.price)
             setTotalPrice(totalPrice)
-            const new_product = { ...product, note: note }
-            setCart([...cart, new_product])
-            setCustomerNote("")
+            let new_product
+            if (userID) {
+                new_product = { ...singleProduct, note: note, ownerID: userID }
+                await axios.post(url + "add-product", new_product)
+                    .then((result) => {
+                        console.log(result)
+                    })
+                    .catch((err) => console.log(err))
+                cart = [...cart, new_product]
+                setCart(cart)
+                console.log(cart)
+                setCustomerNote("")
+            } else {
+                handleNavBarNavigation("dang-nhap", navigate)
+            }
         }
         return (
-            <div className='z-10 w-full h-full bg-opacity-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black flex items-center justify-center' id>
+            <div className='z-10 w-full h-full bg-opacity-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black flex items-center justify-center'>
                 <div className='w-2/3 h-1/2 bg-white flex flex-col items-center relative'>
 
                     <button class="absolute left cursor-pointer duration-200 hover:scale-125 active:scale-100 absolute top-2 right-4" title="Go Back" onClick={() => handleTurnOffExpanded()}>
@@ -77,9 +100,9 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
 
 
     return (
-        <div className='w-full h-auto flex flex-col' onClick={() => console.log(id)}>
+        <div className='w-full h-auto flex flex-col items-center' >
             <div className='w-full h-[70px] bg-gray-400 text-[20px] flex items-center justify-center border-b border-gray-300' id={id}>{title}</div>
-            {product?.map((ele, index) => {
+            {product?.slice(0, productView).map((ele, index) => {
                 return (
                     <>
                         <div className='w-full min-h-[150px] bg-orange-300 flex justify-center items-center gap-2 border-b border-gray-300 cursor-pointer' onClick={() => handleExpanded(index)}>
@@ -122,6 +145,7 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
 
                 )
             })}
+            {expandProduct == false && <button className='mt-10 w-[150px] h-[50px] bg-red-600 text-white hover:bg-green-700 duration-300' onClick={() => handleExpandProduct()}>Xem thêm</button>}
         </div>
     )
 }

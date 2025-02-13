@@ -71,4 +71,6 @@ export const Poster = () => {
     )
 }
 
+
+
 export default Home
