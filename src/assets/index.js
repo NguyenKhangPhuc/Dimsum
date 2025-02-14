@@ -47,6 +47,8 @@ import search from "./search.png"
 import fb_logo from "./fb_logo.webp"
 import ins_logo from "./ins_logo.webp"
 import youtube_logo from "./youtube_logo.webp"
+import cart from "./cart.png"
+import x_icon from "./x_icon.png"
 
 import poster from "./poster.jpg"
 import explore from "./explore.jpg"
@@ -97,5 +99,7 @@ export {
     fb_logo,
     ins_logo,
     youtube_logo,
+    cart,
+    x_icon,
     banner,
 };
