@@ -2,6 +2,7 @@ import React from 'react'
 import { navBar, policy } from '../constants'
 import { handleNavBarNavigation } from './Navbar'
 import { useNavigate } from 'react-router-dom'
+import { fb_logo, ins_logo, youtube_logo } from '../assets'
 
 function Footer() {
     const navigate = useNavigate()
@@ -34,26 +35,43 @@ function Footer() {
                     </div>
                     <div className='w-1/3'>
                         <div className='w-full font-bold pb-3'>Sản Phẩm</div>
-                        <div className='text-[15px] font-light hover:text-red-700 duration-300 cursor-pointer'>Tất cả sản phẩm</div>
+                        <div
+                            className='text-[15px] font-light hover:text-red-700 duration-300 cursor-pointer'
+                            onClick={() => navigate("/san-pham")}
+                        >
+                            Tất cả sản phẩm
+                        </div>
                     </div>
                     <div className='w-1/3'>
                         <div className='w-full font-bold pb-3'>Menu</div>
                         <div className='flex flex-col gap-4'>
                             {navBar?.map((ele, index) => {
                                 return (
-                                    <div className='text-[15px] font-light hover:text-red-700 duration-300 cursor-pointer'>{ele.title}</div>
+                                    <div
+                                        className='text-[15px] font-light hover:text-red-700 duration-300 cursor-pointer'
+                                        onClick={() => handleNavBarNavigation(ele.link, navigate)}
+                                    >{ele.title}</div>
                                 )
                             })}
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='w-100 flex justify-center gap-10 items-center p-6'>
+            <div className='w-100 flex justify-center items-center p-6 gap-3'>
                 <div>KẾT NÓI VỚI CHÚNG TÔI:</div>
-                <div className='flex gap-5'>
-                    <div>FaceBook icon</div>
-                    <div>Instagram icon</div>
-                    <div>Youtube icon</div>
+                <div className='flex gap-2 items-center'>
+                    <img
+                        src={fb_logo}
+                        className='w-[35px] h-[35px] hover:w-[35px] hover:pb-1 duration-300 cursor-pointer'
+                    />
+                    <img
+                        src={ins_logo}
+                        className='w-[35px] h-[35px] hover:w-[35px] hover:pb-1 duration-300 cursor-pointer'
+                    />
+                    <img
+                        src={youtube_logo}
+                        className='w-[35px] h-[35px] hover:w-[35px] hover:pb-1 duration-300 cursor-pointer'
+                    />
                 </div>
             </div>
         </div>

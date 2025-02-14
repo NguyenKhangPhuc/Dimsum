@@ -44,9 +44,13 @@ import sprite_390ml from "./drinks/sprite_390ml.webp"
 import pencil from "./but_icon.png"
 import profile from "./profile.png"
 import search from "./search.png"
+import fb_logo from "./fb_logo.webp"
+import ins_logo from "./ins_logo.webp"
+import youtube_logo from "./youtube_logo.webp"
 
 import poster from "./poster.jpg"
 import explore from "./explore.jpg"
+import banner from "./banner.webp"
 export {
     slide_1,
     slide_2,
@@ -90,4 +94,8 @@ export {
     explore,
     profile,
     search,
+    fb_logo,
+    ins_logo,
+    youtube_logo,
+    banner,
 };
