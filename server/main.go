@@ -28,12 +28,20 @@ type loginUser struct {
 	Password string `json:"loginPassword"`
 }
 
+type id struct {
+	UserID string `json:"userID"`
+}
+
 func (r *Repository) SetupRoutes(app *fiber.App) {
 	app.Post("/register", r.register)
 	app.Post("/login", r.login)
 	app.Post("/add-product", r.addProduct)
 	app.Post("/delete-product", r.deleteProduct)
 	app.Post("/get-cart", r.getCart)
+	app.Post("/get-user", r.getUser)
+	app.Post("/add-order", r.addOrder)
+	app.Post("/add-order-detail", r.addOrderDetail)
+	app.Post("/get-orders", r.getAllOrders)
 	app.Get("/get", r.getAllApi)
 }
 
@@ -57,15 +65,8 @@ func main() {
 		log.Fatal("Could not load the database")
 	}
 
-	err = models.MigrateUser(db)
-	if err != nil {
-		log.Fatal("Could not migrate user model")
-	}
+	migrateTable(db)
 
-	err = models.MigrateCart(db)
-	if err != nil {
-		log.Fatal("Could not migrate cart model")
-	}
 	r := Repository{
 		DB: db,
 	}
@@ -77,6 +78,28 @@ func main() {
 	}))
 	r.SetupRoutes(app)
 	app.Listen(":4000")
+}
+
+func migrateTable(db *gorm.DB) {
+	err := models.MigrateUser(db)
+	if err != nil {
+		log.Fatal("Could not migrate user model")
+	}
+
+	err = models.MigrateCart(db)
+	if err != nil {
+		log.Fatal("Could not migrate cart model")
+	}
+
+	err = models.MigrateOrder(db)
+	if err != nil {
+		log.Fatal("Could not migrate order model")
+	}
+
+	err = models.MigrateOrderDetail(db)
+	if err != nil {
+		log.Fatal("Could not migrate orderdetail model")
+	}
 }
 
 func (r *Repository) register(c *fiber.Ctx) error {
@@ -163,9 +186,6 @@ func (r *Repository) deleteProduct(c *fiber.Ctx) error {
 }
 
 func (r *Repository) getCart(c *fiber.Ctx) error {
-	type id struct {
-		UserID string `json:"userID"`
-	}
 	new_id := new(id)
 	if err := c.BodyParser(new_id); err != nil {
 		return err
@@ -176,6 +196,66 @@ func (r *Repository) getCart(c *fiber.Ctx) error {
 		return err
 	}
 	c.Status(http.StatusOK).JSON(&fiber.Map{"mssg": "get successfully", "info": carts, "id": new_id.UserID})
+	return nil
+}
+
+func (r *Repository) getUser(c *fiber.Ctx) error {
+	new_id := new(id)
+	if err := c.BodyParser(new_id); err != nil {
+		return err
+	}
+	var user models.User
+	err := r.DB.Where("id = ?", new_id.UserID).First(&user).Error
+	if err != nil {
+		return err
+	}
+	c.Status(http.StatusOK).JSON(&fiber.Map{"mssg": "get user successfully", "email": user.Email})
+	return nil
+}
+
+func (r *Repository) addOrder(c *fiber.Ctx) error {
+	order := new(models.Order)
+	if err := c.BodyParser(order); err != nil {
+		return err
+	}
+	fmt.Println(order.Address)
+	err := r.DB.Create(order).Error
+	if err != nil {
+		return err
+	}
+	c.Status(http.StatusOK).JSON(&fiber.Map{"mssg": "add order successfully", "order": order})
+	return nil
+}
+
+func (r *Repository) addOrderDetail(c *fiber.Ctx) error {
+	var orderProducts []models.OrderDetail
+	if err := c.BodyParser(&orderProducts); err != nil {
+		return err
+	}
+	err := r.DB.Create(&orderProducts).Error
+	if err != nil {
+		return err
+	}
+	c.Status(http.StatusOK).JSON(&fiber.Map{"mssg": "add product detail successfully"})
+	return nil
+}
+
+func (r *Repository) getAllOrders(c *fiber.Ctx) error {
+	new_id := new(id)
+	if err := c.BodyParser(new_id); err != nil {
+		return err
+	}
+	var orders []models.Order
+	err := r.DB.Where("owner_id = ?", new_id.UserID).Find(&orders).Error
+	if err != nil {
+		return err
+	}
+	var ordersDetail []models.OrderDetail
+	err = r.DB.Find(&ordersDetail).Error
+	if err != nil {
+		return err
+	}
+	c.Status(http.StatusOK).JSON(&fiber.Map{"mssg": "get orders successfully", "orders": orders, "ordersDetail": ordersDetail})
 	return nil
 }
 

@@ -29,20 +29,16 @@ function Navbar() {
                         )
                     })}
                 </div>
-                <div className='w-1/3 flex justify-center gap-3 relative items-center'> {/* Thêm relative vào đây */}
+                <div className='w-1/3 flex justify-center gap-7 relative items-center'> {/* Thêm relative vào đây */}
                     <img
                         src={isExpanded == false ? cart : x_icon}
-                        className='w-[20px] h-[20px] ml-4 hover:w-[22px] hover:h-[22px] duration-300 cursor-pointer'
+                        className='w-[20px] h-[20px] hover:w-[22px] hover:h-[22px] duration-300 cursor-pointer'
                         onClick={() => setIsExpanded(!isExpanded)}
                     />
                     <img
                         src={profile}
-                        className='w-[30px] h-[30px] ml-4 hover:w-[32px] hover:h-[32px] duration-300 cursor-pointer'
+                        className='w-[30px] h-[30px] hover:w-[32px] hover:h-[32px] duration-300 cursor-pointer'
                         onClick={() => handleNavBarNavigation("dang-nhap", navigate)}
-                    />
-                    <img
-                        src={search}
-                        className='w-[30px] h-[30px] ml-4 hover:w-[32px] hover:h-[32px] duration-300 cursor-pointer'
                     />
                     {isExpanded &&
                         <div className='w-5/6 mt-2 absolute top-full mr-20 bg-white z-50 duration-300 rounded-lg border-2 border-green-500'>

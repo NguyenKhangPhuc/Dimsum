@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { Container, url } from '../App'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function Cart() {
-
+    const navigate = useNavigate()
     let { totalPrice, setTotalPrice } = useContext(Container)
     let { userID, setUserID } = useContext(Container)
     let { cart, setCart } = useContext(Container)
@@ -78,6 +79,7 @@ function Cart() {
                 <button
                     className='w-11/12 mt-2 bg-red-500 h-1/3 text-[20px] font-bold text-white hover:bg-green-600 duration-300'
                     disabled={cart.length == 0 ? true : false}
+                    onClick={() => navigate("/thanh-toan")}
                 >
                     Thanh toán
                 </button>

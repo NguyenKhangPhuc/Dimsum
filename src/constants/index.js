@@ -340,6 +340,7 @@ Bánh kim sa có hương vị, màu sắc vô cùng đặc biệt, vỏ bánh n�
         price: "20.000",
     },
 ]
+const full_menu = [small_meals, noodles_meals, rice_meals, vegetarian_meals, drinks].flat(1)
 
 const slide_imgs = [
     { image: slide_1, link: "san-pham" },
@@ -348,4 +349,4 @@ const slide_imgs = [
     { image: slide_4, link: "san-pham" },
 ]
 
-export { navBar, main_topic, small_meals, noodles_meals, vegetarian_meals, rice_meals, drinks, slide_imgs, policy };
+export { navBar, main_topic, small_meals, noodles_meals, vegetarian_meals, rice_meals, full_menu, drinks, slide_imgs, policy };

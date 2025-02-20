@@ -15,13 +15,16 @@ import { useEffect } from 'react'
 import Account from './Pages/Account'
 import axios from 'axios'
 import Menu_2 from './Pages/Menu_2'
+import Payment from './Pages/Payment'
 
 
 function App() {
   let [totalPrice, setTotalPrice] = useState(0)
   let [userID, setUserID] = useState(null)
   let [cart, setCart] = useState([])
-
+  let [userEmail, setUserEmail] = useState("")
+  let [orders, setOrders] = useState(null)
+  let [ordersDetail, setOrderDetail] = useState(null)
   useEffect(() => {
     userID = window.localStorage.getItem("userID")
     setUserID(userID)
@@ -42,11 +45,49 @@ function App() {
           }
         })
         .catch((err) => console.log(err))
+
+      axios.post(url + "get-user", { userID })
+        .then((result) => {
+          if (result.data.mssg == "get user successfully") {
+            setUserEmail(result.data.email)
+            console.log(result)
+          }
+        })
+        .catch((err) => console.log(err))
+
+      axios.post(url + "get-orders", { userID })
+        .then((result) => {
+          if (result.data.mssg == "get orders successfully") {
+            orders = result.data.orders
+            setOrders(orders)
+            ordersDetail = result.data.ordersDetail
+            setOrderDetail(ordersDetail)
+            console.log(result)
+          }
+        })
+        .catch(err => console.log(err))
     }
   }, [])
 
   return (
-    <Container.Provider value={{ userID, setUserID, cart, setCart, totalPrice, setTotalPrice }}>
+    <Container.Provider value=
+      {
+        {
+          userID,
+          setUserID,
+          cart,
+          setCart,
+          totalPrice,
+          setTotalPrice,
+          userEmail,
+          setUserEmail,
+          orders,
+          setOrders,
+          ordersDetail,
+          setOrderDetail,
+        }
+      }
+    >
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
@@ -58,6 +99,7 @@ function App() {
           <Route path='/chinh-sach-bao-mat' element={<Policy_2 />}></Route>
           <Route path='/dieu-khoan-dich-vu' element={<Policy_3 />}></Route>
           <Route path='/san-pham' element={<Menu_2 />}></Route>
+          <Route path='/thanh-toan' element={<Payment />}></Route>
         </Routes>
       </BrowserRouter>
     </Container.Provider>
