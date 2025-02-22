@@ -7,16 +7,16 @@ import { fb_logo, ins_logo, youtube_logo } from '../assets'
 function Footer() {
     const navigate = useNavigate()
     return (
-        <div className='w-full h-auto bg-gray-200 pt-10 flex-col'>
-            <div className='w-full h-auto flex'>
-                <div className='w-1/2 min-h-[300px] flex flex-col items-center'>
-                    <div className='w-11/12 text-[23px] font-bold pb-5'>Quick Dimsum</div>
-                    <div className='w-11/12'>
+        <div className='max-w-full h-auto bg-gray-200 pt-10 flex-col'>
+            <div className='ipad:flex-col w-full h-auto flex'>
+                <div className='ipad:w-full ipad:pb-10 w-1/2 h-auto flex flex-col items-center'>
+                    <div className='ipad:w-full w-11/12 text-[23px] font-bold pb-5'>Quick Dimsum</div>
+                    <div className='ipad:w-full w-11/12'>
                         Quick Food phục vụ các món ăn truyền thống và sáng tạo của Nhật Bản.
                         Bầu không khí bình dị trong khi thiết kế hiện đại và cao cấp góp phần mang đến trải nghiệm ăn uống thư giãn và thú vị.
                     </div>
                 </div>
-                <div className='w-1/2 flex bg-red-200'>
+                <div className='ipad:w-full w-1/2 flex bg-red-200'>
                     <div className='w-1/3 bg-yellow-200'>
                         <div className='w-full font-bold pb-3'>Chính sách</div>
                         <div className='flex flex-col gap-4'>
@@ -57,7 +57,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div className='w-100 flex justify-center items-center p-6 gap-3'>
+            <div className='ipad:p-0 w-100 flex justify-center items-center p-6 gap-3'>
                 <div>KẾT NÓI VỚI CHÚNG TÔI:</div>
                 <div className='flex gap-2 items-center'>
                     <img

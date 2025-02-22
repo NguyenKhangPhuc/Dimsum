@@ -8,7 +8,7 @@ import { poster, explore } from '../assets'
 import Footer from '../Components/Footer'
 function Home() {
     return (
-        <div className=''>
+        <div className='max-w-full'>
             <Navbar />
             <Slide />
             <Menu />
@@ -21,8 +21,8 @@ function Home() {
 
 export const Explore = () => {
     return (
-        <div className='w-full min-h-[850px] flex items-center justify-center bg-gray-200'>
-            <div className='w-1/2 h-auto flex flex-col bg-yellow-200 items-center'>
+        <div className='ipad:flex-col-reverse ipad:pb-5 max-w-full h-auto flex items-center justify-center bg-gray-200'>
+            <div className='ipad:w-full w-1/2 h-auto flex flex-col bg-yellow-200 items-center'>
                 <div className='w-11/12 bg-red-200 text-[23px] text-green-700'>KHÁM PHÁ</div>
                 <div className='w-11/12 bg-red-200 text-[20px] text-green-700 pb-10'>CÂU CHUYỆN CỦA QUICK DIMSUM</div>
                 <div className='w-11/12 bg-red-200 pb-5 text-[17px]'>
@@ -43,7 +43,7 @@ export const Explore = () => {
                     này tại đây hoặc thêm những bài viết mới trong phần quản lý Trang nội dung.</div>
             </div>
             <div
-                className="w-[650px] h-[600px] rounded-lg"
+                className="ipad:w-full ipad:h-[300px] w-[650px] h-[600px] rounded-lg"
                 style={{
                     backgroundImage: `url(${explore})`,
                     backgroundSize: 'cover',

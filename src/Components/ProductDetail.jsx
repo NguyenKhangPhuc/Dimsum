@@ -42,7 +42,7 @@ const ProductDetail = ({ item, isExpanded, setIsExpanded, cart, setCart, totalPr
 
     return (
         <div className='z-10 w-full h-full bg-opacity-40 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black flex items-center justify-center'>
-            <div className='w-2/3 h-1/2 bg-white flex flex-col items-center relative'>
+            <div className='ipad:w-full ipad:h-full w-2/3 h-1/2 bg-white flex flex-col items-center relative'>
 
                 <button class="absolute left cursor-pointer duration-200 hover:scale-125 active:scale-100 absolute top-2 right-4" title="Go Back" onClick={() => handleTurnOffExpanded()}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" class="stroke-green-600">
@@ -61,9 +61,9 @@ const ProductDetail = ({ item, isExpanded, setIsExpanded, cart, setCart, totalPr
 
                 <div className='w-11/12 mt-4 text-[18px] font-light '>{item.description}</div>
 
-                <div className='w-11/12 h-1/6  mt-10 flex items-center border border-gray-500 gap-4'>
+                <div className='ipad:h-[50px] w-11/12 h-1/6  mt-10 flex items-center border border-gray-500 gap-4'>
                     <img src={pencil} className='w-[25px] h-[25px] ml-4 opacity-50' />
-                    <input type='text' placeholder='Thêm ghi chú' className='w-5/6 h-full focus:outline-none' onChange={(e) => setCustomerNote(e.target.value)} />
+                    <input type='text' placeholder='Thêm ghi chú' className=' w-5/6 h-full focus:outline-none' onChange={(e) => setCustomerNote(e.target.value)} />
                 </div>
 
                 <div className='w-11/12 mt-5 flex justify-end'>

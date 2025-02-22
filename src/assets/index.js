@@ -49,6 +49,7 @@ import ins_logo from "./ins_logo.webp"
 import youtube_logo from "./youtube_logo.webp"
 import cart from "./cart.png"
 import x_icon from "./x_icon.png"
+import hamburger from "./hamburger.png"
 
 import poster from "./poster.jpg"
 import explore from "./explore.jpg"
@@ -102,4 +103,5 @@ export {
     cart,
     x_icon,
     banner,
+    hamburger,
 };

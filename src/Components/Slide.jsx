@@ -23,10 +23,10 @@ function Slide() {
             <div className='flex w-full '>
                 <img src={slide_imgs[slideNumber]?.image} className='w-full h-full object-cover transition-1000 ' />
             </div>
-            <div className='mr-5 absolute top-1/2 w-[50px] h-[40px] flex justify-center items-center bg-white right-0 rounded-full cursor-pointer hover:bg-green-300 duration-300' onClick={() => handleChangeSlide("forward")}>
+            <div className='ipad:top-1/3 ipad:w-[30px] ipad:h-[30px] mr-5 absolute top-1/2 w-[50px] h-[40px] flex justify-center items-center bg-white right-0 rounded-full cursor-pointer hover:bg-green-300 duration-300' onClick={() => handleChangeSlide("forward")}>
                 🡢
             </div>
-            <div className='ml-5 absolute top-1/2 w-[50px] h-[40px] flex justify-center items-center bg-white left-0 rounded-full cursor-pointer hover:bg-green-300 duration-300' onClick={() => handleChangeSlide("back")}>
+            <div className='ipad:top-1/3 ipad:w-[30px] ipad:h-[30px] ml-5 absolute top-1/2 w-[50px] h-[40px] flex justify-center items-center bg-white left-0 rounded-full cursor-pointer hover:bg-green-300 duration-300' onClick={() => handleChangeSlide("back")}>
                 🡠
             </div>
         </div>

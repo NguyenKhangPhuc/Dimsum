@@ -53,6 +53,7 @@ function Login() {
                             userID = result?.data.info.userID
                             setUserID(userID)
                             window.localStorage.setItem("userID", userID)
+                            window.location.reload()
                         }
                     })
                     .catch(err => console.log(err))

@@ -31,7 +31,7 @@ function Menu_2() {
         setFullMenu(full_menu)
     }
     return (
-        <div className='flex flex-col items-center'>
+        <div className='w-full h-auto flex flex-col items-center'>
             <Navbar />
             <div
                 className="w-full h-[300px] rounded-lg"

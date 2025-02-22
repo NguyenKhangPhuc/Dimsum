@@ -218,8 +218,11 @@ func (r *Repository) addOrder(c *fiber.Ctx) error {
 	if err := c.BodyParser(order); err != nil {
 		return err
 	}
-	fmt.Println(order.Address)
 	err := r.DB.Create(order).Error
+	if err != nil {
+		return err
+	}
+	err = r.DB.Where("owner_id = ? ", order.OwnerID).Delete(&models.Cart{}).Error
 	if err != nil {
 		return err
 	}

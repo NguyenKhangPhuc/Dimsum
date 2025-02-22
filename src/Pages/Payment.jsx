@@ -5,8 +5,10 @@ import { Container, url } from '../App'
 import { Explore, Poster } from './Home'
 import Footer from '../Components/Footer'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function Payment() {
+    const navigate = useNavigate()
     let { cart, setCart } = useContext(Container)
     let { totalPrice, setTotalPrice } = useContext(Container)
     let { userID, setUserID } = useContext(Container)
@@ -39,6 +41,8 @@ function Payment() {
                                 console.log(result)
                             })
                             .catch((err) => console.log(err))
+                        navigate("/dang-nhap")
+                        window.location.reload()
                     }
                 })
                 .catch(err => console.log(err))
