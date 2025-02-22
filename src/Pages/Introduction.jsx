@@ -12,7 +12,7 @@ function Introduction() {
             <Navbar />
             <div className='w-full h-auto bg-gray-100 flex justify-center pb-20 pt-20'>
                 <PagesList />
-                <div className='w-2/3 h-auto bg-yellow-100 flex flex-col items-center'>
+                <div className='ipad:w-full w-2/3 h-auto bg-yellow-100 flex flex-col items-center'>
                     <div className='w-11/12 text-[27px] bg-red-100 text-green-800 pb-7 font-bold'>Giới thiệu</div>
                     <div className='w-11/12 font-bold bg-green-100 pb-4'>
                         Trang giới thiệu giúp khách hàng hiểu rõ hơn về cửa hàng của bạn.
@@ -41,7 +41,7 @@ function Introduction() {
 
 export const PagesList = () => {
     return (
-        <div className='w-1/5 h-[340px] border border-gray-300 rounded-lg flex flex-col items-center'>
+        <div className='ipad:hidden w-1/5 h-[340px] border border-gray-300 rounded-lg flex flex-col items-center'>
             <div className='w-11/12 h-[60px] flex items-center justify-center border-b-[2px] border-gray-800 font-bold text-green-700'>DANH MỤC TRANG</div>
             {navBar.map((ele, index) => {
                 return (

@@ -63,11 +63,11 @@ function Login() {
     return (
         <div>
             <Navbar />
-            <div className='w-full h-auto bg-gray-300 flex p-20'>
-                <div className='w-1/2 flex justify-center items-center text-[30px] text-green-700 border-r border-dotted border-gray-500 font-bold underline'>Đăng Nhập / Đăng ký</div>
-                <div className='w-1/2 flex flex-col items-center'>
+            <div className='ipad:flex-col w-full h-auto bg-gray-300 flex pt-20 pb-20'>
+                <div className='ipad:w-full w-1/2 flex justify-center items-center text-[30px] text-green-700 border-r border-dotted border-gray-500 font-bold underline'>Đăng Nhập / Đăng ký</div>
+                <div className='ipad:w-full w-1/2 flex flex-col items-center'>
 
-                    <div className='w-5/6 font-bold text-green-700 pb-3'>Đăng nhập bằng:</div>
+                    <div className='ipad:pt-5 w-5/6 font-bold text-green-700 pb-3'>Đăng nhập bằng:</div>
                     <div className='w-5/6 pb-[45px]'><button className='w-[150px] h-[50px] bg-red-600 rounded-full text-white'>Email</button></div>
                     <div className="w-5/6 pb-4">
                         <input

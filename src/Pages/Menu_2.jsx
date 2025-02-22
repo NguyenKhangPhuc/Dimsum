@@ -43,7 +43,7 @@ function Menu_2() {
                 }}
             >
             </div>
-            <div className='p-2 mt-5 flex items-center justify-center gap-2 border border-gray-300 rounded-lg'>
+            <div className='ipad:w-full p-2 mt-5 flex items-center justify-center gap-2 border border-gray-300 rounded-lg'>
                 <img
                     src={search}
                     className='w-[30px] h-[30px] duration-300 cursor-pointer'
@@ -51,7 +51,7 @@ function Menu_2() {
                 <input
                     type='text'
                     value={searchValue}
-                    className='h-[40px] w-[500px] focus:outline-none'
+                    className='ipad:w-full h-[40px] w-[500px] focus:outline-none'
                     placeholder='Tìm kiếm'
                     onChange={(e) => handleSearching(e.target.value)}
                 />
@@ -63,14 +63,15 @@ function Menu_2() {
             </div>
             <div className='w-full text-[27px] bg-red-100 text-green-800 p-7 font-bold flex justify-center'>Tất cả sản phẩm</div>
             {checkPages == false ?
-                <div className='w-full flex flex-wrap justify-center gap-6 cursor-pointer mt-2'>
+                <div className='ipad:gap-2 w-full flex flex-wrap justify-center gap-6 cursor-pointer mt-2'>
                     <Product_2 product={fullMenu.slice(0, maxLength)} />
                 </div>
                 :
-                <div className='w-full flex flex-wrap justify-center gap-6 cursor-pointer mt-2'>
+                <div className='ipad:gap-2 w-full flex flex-wrap justify-center gap-6 cursor-pointer mt-2'>
                     <Product_2 product={fullMenu.slice(maxLength, full_menu.length)} />
                 </div>
             }
+            {fullMenu == 0 && <div className='w-full flex justify-center items-center font-bold text-[20px]'>Không tìm thấy sản phẩm</div>}
             <div className='p-5 w-full flex justify-center '>
                 {checkPages == false ?
                     <div className='p-3 text-black text-[20px]'>1</div> :
@@ -114,10 +115,10 @@ export const Product_2 = ({ product }) => {
                     return (
                         <>
                             <div
-                                className='relative p-5 w-[200px] hover:shadow-2xl border border-gray-200 rounded-lg duration-300'
+                                className='ipad:w-11/12 relative p-5 w-[200px] hover:shadow-2xl border border-gray-200 rounded-lg duration-300'
                                 onClick={() => handleExpanded(index, isExpanded, setIsExpanded, setProductIndex)}
                             >
-                                <img src={ele.image} />
+                                <img src={ele.image} className='ipad:w-full ' />
                                 <div>{ele.title.length > 18 ? <div>{ele.title.slice(0, 18)}...</div> : <div>{ele.title}</div>}</div>
                                 <div>{ele.price}</div>
                                 <div className='w-full mt-2'>

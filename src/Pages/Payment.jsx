@@ -51,12 +51,12 @@ function Payment() {
     return (
         <div className=''>
             <Navbar />
-            <div className='w-full flex p-20 bg-gray-100'>
-                <div className='w-1/2 flex flex-col items-center'>
+            <div className='ipad:flex-col w-full flex pt-20 pb-20 bg-gray-100'>
+                <div className='ipad:w-full w-1/2 flex flex-col items-center'>
                     <div className='w-5/6 text-[27px] bg-red-100 text-green-800 font-bold border-b border-gray-300'>
                         Thông tin thanh toán
                     </div>
-                    <form className='w-5/6 mt-5 flex flex-col gap-5'>
+                    <form className='ipad:w-11/12 w-5/6 mt-5 flex flex-col gap-5'>
                         <div className='w-full flex flex-col gap-2'>
                             <label className='w-full' for='name'>Họ và tên</label>
                             <input
@@ -64,7 +64,7 @@ function Payment() {
                                 id='name'
                                 value={formData.name}
                                 name='name'
-                                className='border border-gray-300 w-11/12 h-[40px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300'
+                                className='ipad:w-full border border-gray-300 w-11/12 h-[40px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300'
                                 placeholder='Họ và Tên'
                                 onChange={(e) => handleInputChange(e.target)}
                             />
@@ -76,7 +76,7 @@ function Payment() {
                                 id='phone'
                                 value={formData.phone}
                                 name='phone'
-                                className='border border-gray-300 w-11/12 h-[40px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300'
+                                className='ipad:w-full border border-gray-300 w-11/12 h-[40px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300'
                                 placeholder='Số điện thoại'
                                 onChange={(e) => handleInputChange(e.target)}
                             />
@@ -88,7 +88,7 @@ function Payment() {
                                 id='address'
                                 value={formData.address}
                                 name='address'
-                                className='border border-gray-300 w-11/12 h-[40px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300'
+                                className='ipad:w-full border border-gray-300 w-11/12 h-[40px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300'
                                 placeholder='Địa chỉ'
                                 onChange={(e) => handleInputChange(e.target)}
                             />
@@ -135,7 +135,8 @@ function Payment() {
                         </div>
                     </form>
                 </div>
-                <div className='w-1/2 flex flex-col items-center text-[27px] bg-red-100 text-green-800 font-bold border-b border-gray-300'>
+                <div className='ipad:mt-5 ipad:w-full w-1/2 flex flex-col items-center text-[27px] bg-red-100 text-green-800 font-bold border-b border-gray-300'>
+                    <div>Đơn hàng của bạn</div>
                     <OrdersComponent ordersDetail={cart} totalPrice={totalPrice} />
                     <div className='w-5/6 mt-5 text-[18px] text-red-600 font-bold flex justify-end pb-4'>Tổng cộng: {totalPrice.toFixed(3)}đ</div>
                 </div>

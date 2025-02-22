@@ -16,7 +16,7 @@ function Navbar() {
                 className='w-full bg-green-700 flex justify-center text-[20px] text-white'>
                 Ưu đãi nhất năm - chọn món nhé
             </div>
-            <div className=' w-full flex items-center relative'>
+            <div className='ipad:p-2 w-full flex items-center relative'>
                 <img
                     src={isOpen ? x_icon : hamburger}
                     className="ipad:block hidden w-[20px] h-[20px] cursor-pointer"
@@ -49,13 +49,13 @@ function Navbar() {
                         className='w-[30px] h-[30px] hover:w-[32px] hover:h-[32px] duration-300 cursor-pointer'
                         onClick={() => handleNavBarNavigation("dang-nhap", navigate)}
                     />
+                    {isExpanded &&
+                        <div className='iphone:w-[280px] ipad:w-[300px] w-[400px] ipad:right-0 mt-2 absolute top-full bg-white z-50 duration-300 rounded-lg border-2 border-green-500'>
+                            <Cart_2 />
+                        </div>
+                    }
                 </div>
             </div>
-            {isExpanded &&
-                <div className='ipad:w-5/6 ipad:right-0 mt-2 absolute top-full right-20 bg-white z-50 duration-300 rounded-lg border-2 border-green-500'>
-                    <Cart_2 />
-                </div>
-            }
         </div>
     )
 }

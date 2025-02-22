@@ -10,7 +10,7 @@ function Policy_2() {
             <Navbar />
             <div className='w-full h-auto bg-gray-100 flex justify-center pb-20 pt-20'>
                 <PagesList />
-                <div className='w-2/3 h-auto bg-yellow-100 flex flex-col items-center'>
+                <div className='ipad:w-full w-2/3 h-auto bg-yellow-100 flex flex-col items-center'>
                     <div className='w-11/12 text-[27px] bg-red-100 text-green-800 pb-7 font-bold'>Chính sách bảo mật</div>
                     <div className='w-11/12 pb-3'>
                         Chính sách bảo mật này nhằm giúp Quý khách hiểu về cách website thu thập và sử dụng thông tin cá nhân của mình thông qua việc sử dụng trang web,

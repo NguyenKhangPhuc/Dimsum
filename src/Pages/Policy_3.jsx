@@ -10,7 +10,7 @@ function Policy_3() {
             <Navbar />
             <div className='w-full h-auto bg-gray-100 flex justify-center pb-20 pt-20'>
                 <PagesList />
-                <div className='w-2/3 h-auto bg-yellow-100 flex flex-col items-center'>
+                <div className='ipad:w-full w-2/3 h-auto bg-yellow-100 flex flex-col items-center'>
                     <div className='w-11/12 text-[27px] bg-red-100 text-green-800 pb-7 font-bold'>Điều khoản dịch vụ</div>
                     <div className='w-11/12 font-bold bg-green-100 pb-4'>1. Giới thiệu</div>
                     <div className='w-11/12 pb-2'>Chào mừng quý khách hàng đến với website chúng tôi.</div>
