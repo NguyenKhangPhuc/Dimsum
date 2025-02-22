@@ -63,7 +63,7 @@ function Login() {
     return (
         <div>
             <Navbar />
-            <div className='ipad:flex-col w-full h-auto bg-gray-300 flex pt-20 pb-20'>
+            <div className='ipad:flex-col w-full h-auto bg-gray-200 flex pt-20 pb-20'>
                 <div className='ipad:w-full w-1/2 flex justify-center items-center text-[30px] text-green-700 border-r border-dotted border-gray-500 font-bold underline'>Đăng Nhập / Đăng ký</div>
                 <div className='ipad:w-full w-1/2 flex flex-col items-center'>
 
@@ -71,7 +71,7 @@ function Login() {
                     <div className='w-5/6 pb-[45px]'><button className='w-[150px] h-[50px] bg-red-600 rounded-full text-white'>Email</button></div>
                     <div className="w-5/6 pb-4">
                         <input
-                            className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300"
+                            className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-300 focus:bg-white border focus:border-gray-400 duration-300"
                             placeholder="Email"
                             onChange={(e) => setLoginEmail(e.target.value)}
                         />
@@ -79,7 +79,7 @@ function Login() {
 
                     <div className="w-5/6 pb-2">
                         <input
-                            className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300"
+                            className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-300 focus:bg-white border focus:border-gray-400 duration-300"
                             placeholder="Mật khẩu"
                             type='password'
                             onChange={(e) => setLoginPassword(e.target.value)}
@@ -101,7 +101,7 @@ function Login() {
                         <div className='w-5/6 text-[12px] text-green-700 underline cursor-pointer' onClick={() => setExpandRegister(true)}>Đăng ký?</div>
                         :
                         <div
-                            className='w-[40px]  bg-gray-200 hover:bg-green-700 hover:text-white duration-300 flex items-center justify-center text-[18px] font-light cursor-pointer'
+                            className='w-[40px]  bg-gray-300 hover:bg-green-700 hover:text-white duration-300 flex items-center justify-center text-[18px] font-light cursor-pointer'
                             onClick={() => setExpandRegister(false)}
                         >
                             X
@@ -109,19 +109,19 @@ function Login() {
                     }
 
                     {expandRegister == true &&
-                        <div className='w-full flex flex-col items-center bg-yellow-300 pt-5'>
+                        <div className='w-full flex flex-col items-center pt-5'>
                             <div className='w-5/6 font-bold text-green-700 pb-3'>Đăng ký bằng:</div>
                             <div className='w-5/6 pb-[45px]'><button className='w-[150px] h-[50px] bg-red-600 rounded-full text-white'>Email</button></div>
                             <div className="w-5/6 pb-4">
                                 <input
-                                    className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300"
+                                    className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-300 focus:bg-white border focus:border-gray-400 duration-300"
                                     placeholder="Email"
                                     onChange={(e) => setRegisterEmail(e.target.value)}
                                 />
                             </div>
                             <div className="w-5/6 pb-5">
                                 <input
-                                    className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-200 focus:bg-white border focus:border-gray-400 duration-300"
+                                    className="w-11/12 h-[50px] focus:outline-none pl-4 bg-gray-300 focus:bg-white border focus:border-gray-400 duration-300"
                                     placeholder="Mật khẩu"
                                     type='password'
                                     onChange={(e) => setRegisterPassword(e.target.value)}

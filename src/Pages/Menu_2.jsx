@@ -61,7 +61,7 @@ function Menu_2() {
                     onClick={() => handleClearSearch()}
                 />
             </div>
-            <div className='w-full text-[27px] bg-red-100 text-green-800 p-7 font-bold flex justify-center'>Tất cả sản phẩm</div>
+            <div className='w-full text-[27px] text-green-800 p-7 font-bold flex justify-center'>Tất cả sản phẩm</div>
             {checkPages == false ?
                 <div className='ipad:gap-2 w-full flex flex-wrap justify-center gap-6 cursor-pointer mt-2'>
                     <Product_2 product={fullMenu.slice(0, maxLength)} />

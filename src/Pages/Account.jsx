@@ -16,13 +16,13 @@ function Account() {
     return (
         <div className=''>
             <Navbar />
-            <div className='w-full flex flex-col'>
-                <div className='p-7 w-full flex justify-center items-center text-[27px] bg-red-100 text-green-800 font-bold border-b border-gray-300'>
+            <div className='w-full flex flex-col pb-10'>
+                <div className='p-7 w-full flex justify-center bg-gray-200 items-center text-[27px] text-green-800 font-bold border-b border-gray-300'>
                     Tài Khoản của bạn
                 </div>
-                <div className='ipad:flex-col w-full bg-red-200 mt-5 flex'>
+                <div className='ipad:flex-col w-full mt-5 flex'>
 
-                    <div className='ipad:w-full w-1/4 bg-red-300 flex flex-col items-center gap-2'>
+                    <div className='ipad:w-full w-1/4 flex flex-col items-center gap-2'>
                         <div className='w-3/4 text-[18px] font-bold text-green-700'>TÀI KHOẢN</div>
                         <div className='w-3/4'>
                             <button class="Btn" onClick={() => handleLogout()}>
@@ -39,7 +39,7 @@ function Account() {
                     <div className='ipad:w-full w-3/4 flex flex-col items-center'>
                         <div className='w-3/4 p-2 border-b border-gray-300'>Thông tin tài khoản</div>
                         <div className='ipad:text-[15px] w-3/4 p-2 font-bold text-[18px] text-green-700'>{userEmail}</div>
-                        <div className='w-full p-2'>
+                        <div className='ipad:w-full w-3/4 p-2'>
                             <div className='w-full text-[25px] font-bold'>Đơn hàng của bạn</div>
                             <OrderTable />
                         </div>

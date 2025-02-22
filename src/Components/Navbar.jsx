@@ -50,7 +50,7 @@ function Navbar() {
                         onClick={() => handleNavBarNavigation("dang-nhap", navigate)}
                     />
                     {isExpanded &&
-                        <div className='iphone:w-[280px] ipad:w-[300px] w-[400px] ipad:right-0 mt-2 absolute top-full bg-white z-50 duration-300 rounded-lg border-2 border-green-500'>
+                        <div className='iphone:w-[280px] ipad:w-[300px] w-[350px] ipad:right-0 mt-2 absolute top-full bg-white z-50 duration-300 rounded-lg border-2 border-green-500'>
                             <Cart_2 />
                         </div>
                     }

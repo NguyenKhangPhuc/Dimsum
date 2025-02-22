@@ -71,7 +71,7 @@ function Cart() {
                 :
                 <div className='mt-5 pb-5 font-bold'>Giỏ hàng của bạn đang trống</div>
             }
-            <div className='w-full  h-[130px] bg-gray-200 flex flex-col justify-center items-center gap-3' >
+            <div className='w-full  h-[130px] bg-gray-100 flex flex-col justify-center items-center gap-3' >
                 <div className='w-11/12  flex justify-between'>
                     <div className='text-[18px]'>Tổng Cộng:</div>
                     {cart.length != 0 ? <div className='text-[20px] text-red-600 font-bold'>{totalPrice.toFixed(3)}đ</div> : "0.0đ"}

@@ -29,20 +29,20 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
 
     return (
         <div className='w-full h-auto flex flex-col items-center' >
-            <div className='w-full h-[70px] bg-gray-400 text-[20px] flex items-center justify-center border-b border-gray-300' id={id}>{title}</div>
+            <div className='w-full h-[70px] text-[20px] flex items-center justify-center border-b border-t border-gray-300' id={id}>{title}</div>
             {product?.slice(0, productView).map((ele, index) => {
                 return (
                     <>
-                        <div className='w-full min-h-[150px] bg-orange-300 flex justify-center items-center gap-2 border-b border-gray-300 cursor-pointer' onClick={() => handleExpanded(index, isExpanded, setIsExpanded, setProductIndex)}>
+                        <div className='p-5 w-full min-h-[150px] flex justify-center items-center gap-2 border-b border-gray-300 cursor-pointer' onClick={() => handleExpanded(index, isExpanded, setIsExpanded, setProductIndex)}>
                             <img src={ele.image} className='w-1/6 '></img>
-                            <div className='w-3/4 bg-gray-300 '>
+                            <div className='w-3/4 '>
                                 <div className='w-auto h-1/4 text-[18px] text-green-600 font-light'>
                                     {ele.title}
                                 </div>
                                 <div className='h-1/2 text-[16px] font-light'>
                                     {ele.description.slice(0, MAXLENGTH)}...
                                 </div>
-                                <div className='w-full bg-red-200 flex justify-between items-center'>
+                                <div className='w-full flex justify-between items-center'>
                                     <div className='font-lighter text-[16px] text-red-800'>
                                         {ele.price}₫
                                     </div>
@@ -85,7 +85,7 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
 
                 )
             })}
-            {expandProduct == false && <button className='mt-10 w-[150px] h-[50px] bg-red-600 text-white hover:bg-green-700 duration-300' onClick={() => handleExpandProduct()}>Xem thêm</button>}
+            {expandProduct == false && <button className='mt-5 w-[120px] h-[40px] bg-red-600 text-white hover:bg-green-700 duration-300' onClick={() => handleExpandProduct()}>Xem thêm</button>}
         </div>
     )
 }

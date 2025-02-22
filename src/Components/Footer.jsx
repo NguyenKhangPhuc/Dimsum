@@ -7,8 +7,8 @@ import { fb_logo, ins_logo, youtube_logo } from '../assets'
 function Footer() {
     const navigate = useNavigate()
     return (
-        <div className='max-w-full h-auto bg-gray-200 pt-10 flex-col'>
-            <div className='ipad:flex-col w-full h-auto flex'>
+        <div className='mt-5 max-w-full h-auto border border-gray-200 pt-10 flex-col'>
+            <div className='ipad:flex-col w-full h-auto flex border-b border-gray-200 pb-10'>
                 <div className='ipad:w-full ipad:pb-10 w-1/2 h-auto flex flex-col items-center'>
                     <div className='ipad:w-full w-11/12 text-[23px] font-bold pb-5'>Quick Dimsum</div>
                     <div className='ipad:w-full w-11/12'>
@@ -16,8 +16,8 @@ function Footer() {
                         Bầu không khí bình dị trong khi thiết kế hiện đại và cao cấp góp phần mang đến trải nghiệm ăn uống thư giãn và thú vị.
                     </div>
                 </div>
-                <div className='ipad:w-full w-1/2 flex bg-red-200'>
-                    <div className='w-1/3 bg-yellow-200'>
+                <div className='ipad:w-full w-1/2 flex'>
+                    <div className='w-1/3'>
                         <div className='w-full font-bold pb-3'>Chính sách</div>
                         <div className='flex flex-col gap-4'>
                             {policy?.map((ele, index) => {

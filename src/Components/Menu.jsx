@@ -9,16 +9,16 @@ function Menu() {
     let { cart, setCart } = useContext(Container)
 
     return (
-        <div className='ipad:m-0 w-full h-auto bg-red-100 mt-20 flex-col pb-20'>
-            <div className='w-full h-[100px] flex justify-center items-center font-bold text-[25px] text-green-800 bg-red-300'>
+        <div className='ipad:m-0 w-full h-auto mt-20 flex-col pb-20'>
+            <div className='w-full h-[100px] flex justify-center items-center font-bold text-[25px] text-green-800 border border-gray-200 rounded-lg'>
                 Thực Đơn
             </div>
             <div className='ipad:flex-col w-full h-auto flex justify-center gap-10 relative'>
-                <div className='ipad:flex-row ipad:top-0 ipad:w-full ipad:h-auto ipad:p-2 top-20 sticky w-1/5 h-[300px] bg-green-200 border border-gray-300 rounded-lg flex flex-col items-center justify-center gap-2'>
+                <div className='ipad:flex-row ipad:top-0 ipad:w-full ipad:h-auto ipad:p-2 top-20 sticky w-1/5 h-[300px] border border-gray-300 rounded-lg flex flex-col items-center justify-center'>
                     {main_topic?.map((ele, index) => {
                         return (
                             <div
-                                className='ipad:justify-center ipad:border-none w-5/6 h-1/6 flex items-center rounded-lg border-b border-dotted border-gray-300 pl-3 hover:text-red-700 hover:border-red-900 duration-300 cursor-pointer'
+                                className='ipad:justify-center ipad:border-none w-5/6 h-1/6 flex items-center border-b border-dotted border-gray-300 pl-3 hover:text-red-700 hover:border-red-900 duration-300 cursor-pointer'
 
                             >
                                 <a href={`#${ele.link}`} className='iphone:text-[9px]'>{ele.title}</a>
@@ -26,7 +26,7 @@ function Menu() {
                         )
                     })}
                 </div>
-                <div className='ipad:w-full w-2/5 h-auto bg-violet-100 border border-gray-300 rounded-lg flex flex-col gap-10'>
+                <div className='ipad:w-full pb-5 w-2/5 h-auto border border-gray-300 rounded-lg flex flex-col gap-10'>
                     <Product title={"Điểm Tâm"} product={small_meals} id={"small_meals"} cart={cart} setCart={setCart} totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
                     <Product title={"Cháo - Hủ Tiếu - Mì"} product={noodles_meals} id={"noodles_meals"} cart={cart} setCart={setCart} totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
                     <Product title={"Cơm"} product={rice_meals} id={"rices"} cart={cart} setCart={setCart} totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
