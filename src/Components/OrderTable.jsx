@@ -9,6 +9,14 @@ function OrderTable() {
     let [filteredOrders, setFilteredOrders] = useState([])
     let [orderTotal, setOrderTotal] = useState(0);
     const handleFilterOrders = (id, total) => {
+        //Parameters:
+        // -id: the id of the order (not order detail).
+        // -total: the total price of that order.
+
+        //Set isExpanded = true to show the order detail.
+        //Then filter the orders details base on the id of the chosen order.
+        //Set the filteredOrders to the one above.
+        //Get the order total
         setIsExpanded(true)
         const filtered = ordersDetail.filter((ele, index) => {
             return ele.cartOwner == id

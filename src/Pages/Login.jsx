@@ -5,20 +5,27 @@ import Footer from '../Components/Footer'
 import axios from 'axios'
 import { url } from '../App'
 import { Container } from '../App'
+import { useNavigate } from 'react-router-dom'
+import { x_icon } from '../assets'
 
 function Login() {
+    //Recieve userID,setUserId from Container in App.jsx
     let { userID, setUserID } = useContext(Container)
+    const navigate = useNavigate()
     let [expandRegister, setExpandRegister] = useState(false)
     let [registerEmail, setRegisterEmail] = useState("")
     let [registerPassword, setRegisterPassword] = useState("")
     let [loginEmail, setLoginEmail] = useState("")
     let [loginPassword, setLoginPassword] = useState("")
 
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
     const handleRegister = async () => {
+        //Check if the input for email and password has been given
+        //in the correct way. If yes ==> send the email and password to the back-end server.
+        //If message == "Account has been already created" meaning this account is already created.
+        //==> alert the user. If not ==> register successfully.
         if (registerEmail == "" || registerPassword == "") {
             alert("Cannot register an emtpy account!")
         } else {
@@ -28,7 +35,9 @@ function Login() {
                 console.log(registerEmail + " " + registerPassword)
                 await axios.post(url + "register", { registerEmail, registerPassword })
                     .then((result) => {
-                        console.log(result)
+                        if (result.data.message == "Account has been already created") {
+                            alert("Account with this email has been already created")
+                        }
                     })
                     .catch((err) => console.log(err))
             }
@@ -37,6 +46,13 @@ function Login() {
     }
 
     const handleLogin = async () => {
+        //Check if the given email and password are given in the correct way.
+        //If yes ==> send them to back-end server.
+        //Recieve mssg == "Login successfully" meaning that we are logged in.
+        //set the userID of the container to the id that logged in.
+        //set the userID in the local storage to current userID then reload.
+        //If not ==> Wrong password or email or both.
+
         console.log(loginEmail + " pw: " + loginPassword)
         if (loginEmail == "" || loginPassword == "") {
             alert("Cannot sign in with empty account")
@@ -54,6 +70,8 @@ function Login() {
                             setUserID(userID)
                             window.localStorage.setItem("userID", userID)
                             window.location.reload()
+                        } else {
+                            alert("Please check the email or the password.")
                         }
                     })
                     .catch(err => console.log(err))
@@ -86,7 +104,11 @@ function Login() {
                         />
                     </div>
 
-                    <div className='w-5/6 text-[12px] pb-5 underline cursor-pointer'>Quên mật khẩu?</div>
+                    <div
+                        className='w-5/6 text-[12px] pb-5 underline'
+                    >
+                        <a onClick={() => navigate("/doi-mat-khau")} className='cursor-pointer'>Quên mật khẩu?</a>
+                    </div>
 
                     <div className='w-5/6 pb-2'>
                         <button
@@ -101,10 +123,10 @@ function Login() {
                         <div className='w-5/6 text-[12px] text-green-700 underline cursor-pointer' onClick={() => setExpandRegister(true)}>Đăng ký?</div>
                         :
                         <div
-                            className='w-[40px]  bg-gray-300 hover:bg-green-700 hover:text-white duration-300 flex items-center justify-center text-[18px] font-light cursor-pointer'
+                            className='rounded-lg p-2 w-[40px] bg-gray-300 hover:bg-green-700 hover:text-white duration-[0.5s] flex items-center justify-center text-[18px] font-light cursor-pointer'
                             onClick={() => setExpandRegister(false)}
                         >
-                            X
+                            <img src={x_icon} className='w-1/2' />
                         </div>
                     }
 

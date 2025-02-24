@@ -16,6 +16,13 @@ function Menu_2() {
     let [fullMenu, setFullMenu] = useState(full_menu)
     let [searchValue, setSearchValue] = useState("")
     const handleSearching = (value) => {
+        //Parameters:
+        //- value: search value.
+
+        //Receive the search input value, if it == "" ==> set it back to the full_menu
+        //If not ==> applying the filter process to the full_menu array of objects.
+        //Using both toLowerCase and includes method to return the products which 
+        //include the search value in their name, then setFullMenu to the filtered one.
         setSearchValue(value)
         if (value == "") {
             setFullMenu(full_menu)
@@ -27,6 +34,7 @@ function Menu_2() {
         console.log(searchFilter)
     }
     const handleClearSearch = () => {
+        //Clear the search when the user click "x" icon, then setFullMenu = full_menu.
         setSearchValue("")
         setFullMenu(full_menu)
     }
@@ -104,6 +112,7 @@ function Menu_2() {
 }
 
 export const Product_2 = ({ product }) => {
+    //Receive cart,setCart,totalPrice,setTotalPrice from Container
     let { cart, setCart } = useContext(Container)
     let { totalPrice, setTotalPrice } = useContext(Container)
     let [productIndex, setProductIndex] = useState(0)

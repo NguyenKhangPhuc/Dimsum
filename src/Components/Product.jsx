@@ -7,8 +7,14 @@ import { useNavigate } from 'react-router-dom'
 import ProductDetail from './ProductDetail'
 
 export const handleExpanded = (index, isExpanded, setIsExpanded, setProductIndex) => {
-    //Set the chosen product's index
+    //Parameters:
+    // -index = the index of the chosen product.
+    // -isExpanded/setIsExpanded = boolean var to check if the product detail is expanded or not.
+    // setProductIndex = set this to the index of the chosen product.
+
+    //Set the product index to the chosen product.
     //and set isExpanded to true to pop up a product detail window.
+    //Exported for resuability purpose.
     isExpanded = true
     setIsExpanded(isExpanded)
     setProductIndex(index)
@@ -16,6 +22,7 @@ export const handleExpanded = (index, isExpanded, setIsExpanded, setProductIndex
 }
 
 function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice }) {
+
     const MAXLENGTH = 120
     let [productView, setProductView] = useState(2)
     let [isExpanded, setIsExpanded] = useState(false)
@@ -23,13 +30,16 @@ function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice 
     let [expandProduct, setExpandProduct] = useState(false)
 
     const handleExpandProduct = () => {
+        //Set the product view to the size of the product (maybe 9 or 3 or,...)
+        //Set expand product to true to hide the "Xem thêm" button.
         setProductView(product.length)
         setExpandProduct(true)
     }
 
     return (
         <div className='w-full h-auto flex flex-col items-center' >
-            <div className='w-full h-[70px] text-[20px] flex items-center justify-center border-b border-t border-gray-300' id={id}>{title}</div>
+            <div className='bg-gray-100 w-full h-[70px] text-[20px] flex items-center justify-center border-b border-t border-gray-300' id={id}>{title}</div>
+            {/*slice the product to two product (productView = 2) each type */}
             {product?.slice(0, productView).map((ele, index) => {
                 return (
                     <>

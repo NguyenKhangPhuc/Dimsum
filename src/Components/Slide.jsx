@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 import { slide_imgs } from '../constants'
 function Slide() {
+    // Receive an array of objects of slide images from '../constants'
     let [slideNumber, setSlideNumber] = useState(0)
     const handleChangeSlide = (mssg) => {
+        //Parameters:
+        // -mssg: mssg is "forward"/"back".
+
+        //When mssg equal "forward" ==> move slide forward, if reach the end ==> back to the first.
+        //Same idea for when mssg equal "back"(minus).
         if (mssg == "forward") {
             slideNumber += 1
             setSlideNumber(slideNumber)

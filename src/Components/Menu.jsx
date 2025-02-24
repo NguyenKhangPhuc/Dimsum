@@ -4,8 +4,8 @@ import Product from './Product'
 import { Container, url } from '../App'
 import Cart_2 from './Cart'
 function Menu() {
+    //Receive totalPrice, setTotalPrice, cart, setCart from Container in App.jsx
     let { totalPrice, setTotalPrice } = useContext(Container)
-    let { userID, setUserID } = useContext(Container)
     let { cart, setCart } = useContext(Container)
 
     return (
@@ -14,7 +14,7 @@ function Menu() {
                 Thực Đơn
             </div>
             <div className='ipad:flex-col w-full h-auto flex justify-center gap-10 relative'>
-                <div className='ipad:flex-row ipad:top-0 ipad:w-full ipad:h-auto ipad:p-2 top-20 sticky w-1/5 h-[300px] border border-gray-300 rounded-lg flex flex-col items-center justify-center'>
+                <div className='ipad:bg-gray-300 ipad:flex-row ipad:top-0 ipad:w-full ipad:h-auto ipad:p-2 top-20 sticky w-1/5 h-[300px] border border-gray-300 rounded-lg flex flex-col items-center justify-center'>
                     {main_topic?.map((ele, index) => {
                         return (
                             <div

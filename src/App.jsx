@@ -8,28 +8,35 @@ import Login from './Pages/Login'
 import Policy_1 from './Pages/Policy_1'
 import Policy_2 from './Pages/Policy_2'
 import Policy_3 from './Pages/Policy_3'
-import { createContext } from 'react'
-export const Container = createContext()
-export const url = "http://localhost:4000/"
-import { useEffect } from 'react'
-import Account from './Pages/Account'
-import axios from 'axios'
 import Menu_2 from './Pages/Menu_2'
 import Payment from './Pages/Payment'
-
+import Account from './Pages/Account'
+import ResetPassword from './Pages/ResetPassword'
+import { createContext } from 'react'
+import { useEffect } from 'react'
+import axios from 'axios'
+export const Container = createContext()
+export const url = "http://localhost:4000/"
 
 function App() {
+
   let [totalPrice, setTotalPrice] = useState(0)
   let [userID, setUserID] = useState(null)
   let [cart, setCart] = useState([])
   let [userEmail, setUserEmail] = useState("")
   let [orders, setOrders] = useState(null)
   let [ordersDetail, setOrderDetail] = useState(null)
+
   useEffect(() => {
+    // Using useEffect to get the ID if the user signed in before.
+    // If there are the userID ===> 1. Get the user cart and send it with useContext
+    // 2. Calculate the total price of the cart using a loop over it, then send it with useContext
+    // 3. Get the user email and send it to the with useContext.
+    // 4. Get the previous orders and its detail then send it with useContext
     userID = window.localStorage.getItem("userID")
     setUserID(userID)
     console.log(userID)
-
+    //------------------------------------------
     if (userID) {
       axios.post(url + "get-cart", { userID })
         .then((result) => {
@@ -45,7 +52,7 @@ function App() {
           }
         })
         .catch((err) => console.log(err))
-
+      //------------------------------------------
       axios.post(url + "get-user", { userID })
         .then((result) => {
           if (result.data.mssg == "get user successfully") {
@@ -54,7 +61,7 @@ function App() {
           }
         })
         .catch((err) => console.log(err))
-
+      //------------------------------------------
       axios.post(url + "get-orders", { userID })
         .then((result) => {
           if (result.data.mssg == "get orders successfully") {
@@ -100,6 +107,7 @@ function App() {
           <Route path='/dieu-khoan-dich-vu' element={<Policy_3 />}></Route>
           <Route path='/san-pham' element={<Menu_2 />}></Route>
           <Route path='/thanh-toan' element={<Payment />}></Route>
+          <Route path='/doi-mat-khau' element={<ResetPassword />}></Route>
         </Routes>
       </BrowserRouter>
     </Container.Provider>
@@ -107,6 +115,7 @@ function App() {
 }
 
 export const ScrollToTop = () => {
+  //This component will scroll to top each time the pathname or the location change!
   const { pathname } = useLocation()
 
   useEffect(() => {

@@ -56,7 +56,7 @@ const policy = [
 
 const main_topic = [
     { title: "Điểm tâm", link: "small_meals" },
-    { title: "Cháo - Hủ tiếu - Mì", link: "noodles_meals" },
+    { title: "Món nước", link: "noodles_meals" },
     { title: "Cơm", link: "rices" },
     { title: "Món chay", link: "vegetarian_meals" },
     { title: "Nước uống", link: "drinks" },

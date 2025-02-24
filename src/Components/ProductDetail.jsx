@@ -18,6 +18,10 @@ const ProductDetail = ({ item, isExpanded, setIsExpanded, cart, setCart, totalPr
     }
 
     const handleAddProduct = async (singleProduct, note) => {
+        //Parameters:
+        // -singleProduct: The chosen product
+        // -note: the note of the customer
+
         //Get the product that the user has chosen, and add it
         //into the cart while calculate the totalprice of the products the cart.
         if (userID) {

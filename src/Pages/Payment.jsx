@@ -18,11 +18,23 @@ function Payment() {
         address: "",
         pay_method: "credit_card",
     })
+
     const handleInputChange = (data) => {
+        //Parameters: 
+        // -data: is the object containing the name of the input and its value.
+
+        //Set the value of inputs to the data,name (data.name == name or phone or address,...)
         formData = { ...formData, [data.name]: data.value }
         setFormData(formData)
     }
+
     const handleSubmit = async () => {
+        // Check if the input values are given in the correct form.
+        // If yes using "POST" method to pass the inputs value to back-end servers.
+        // When add order are successful 
+        // Set the current cart (cart from Container) to have
+        // one more key "cartOwner" with value is the id of the added order.
+        // using "Post" method to pass the cart with new key and value to the back-end servers.
         if (formData.name == "" || formData.address == "" || formData.phone == "") {
             alert("Cannot continue with no information payment")
         } else {

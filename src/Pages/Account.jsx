@@ -9,6 +9,7 @@ import Footer from '../Components/Footer'
 function Account() {
     let { userEmail, setUserEmail } = useContext(Container)
     const handleLogout = () => {
+        //Remove the item userID from the localStorage to logout, then reload.
         window.localStorage.removeItem("userID")
         window.location.reload()
     }
