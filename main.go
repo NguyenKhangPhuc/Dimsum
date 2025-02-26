@@ -95,7 +95,7 @@ func main() {
 		port = "5000"
 	}
 	if os.Getenv("ENV") == "production" {
-		app.Static("/", "../dist")
+		app.Static("/", "./dist")
 	}
 
 	app.Listen("0.0.0.0:" + port)
