@@ -37,6 +37,9 @@ function Login() {
                     .then((result) => {
                         if (result.data.message == "Account has been already created") {
                             alert("Account with this email has been already created")
+                        } else {
+                            alert("Create successfully")
+                            setExpandRegister(false)
                         }
                     })
                     .catch((err) => console.log(err))
@@ -123,7 +126,7 @@ function Login() {
                         <div className='w-5/6 text-[12px] text-green-700 underline cursor-pointer' onClick={() => setExpandRegister(true)}>Đăng ký?</div>
                         :
                         <div
-                            className='rounded-lg p-2 w-[40px] bg-gray-300 hover:bg-green-700 hover:text-white duration-[0.5s] flex items-center justify-center text-[18px] font-light cursor-pointer'
+                            className='rounded-lg p-2 w-[40px] bg-gray-300 hover:bg-green-700 hover:text-white flex items-center justify-center text-[18px] font-light cursor-pointer'
                             onClick={() => setExpandRegister(false)}
                         >
                             <img src={x_icon} className='w-1/2' />

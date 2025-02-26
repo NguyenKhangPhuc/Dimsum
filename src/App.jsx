@@ -16,7 +16,7 @@ import { createContext } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 export const Container = createContext()
-export const url = "http://localhost:4000/"
+export const url = import.meta.env.MODE === "development" ? "http://localhost:5000/" : "/";
 
 function App() {
 

@@ -8,7 +8,6 @@ import (
 	"github.com/NguyenKhangPhuc/Dimsum/models"
 	"github.com/NguyenKhangPhuc/Dimsum/storage"
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
 	"gorm.io/gorm"
 )
@@ -53,9 +52,13 @@ func (r *Repository) SetupRoutes(app *fiber.App) {
 }
 
 func main() {
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatal(err)
+
+	if os.Getenv("ENV") != "production" {
+		//Load the .env file if in development.
+		err := godotenv.Load(".env")
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	//Create the Config type and assign the
@@ -82,12 +85,20 @@ func main() {
 	}
 
 	app := fiber.New()
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:5173",
-		AllowHeaders: "Origin,Content-Type,Accept",
-	}))
+	// app.Use(cors.New(cors.Config{
+	// 	AllowOrigins: "http://localhost:5173",
+	// 	AllowHeaders: "Origin,Content-Type,Accept",
+	// }))
 	r.SetupRoutes(app)
-	app.Listen(":4000")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "5000"
+	}
+	if os.Getenv("ENV") == "production" {
+		app.Static("/", "../dist")
+	}
+
+	app.Listen("0.0.0.0:" + port)
 }
 
 func migrateTable(db *gorm.DB) {
@@ -124,7 +135,7 @@ func (r *Repository) register(c *fiber.Ctx) error {
 	if err := c.BodyParser(registerUser); err != nil {
 		return err
 	}
-	err := r.DB.Where("email = ?", registerUser.Email).First(&registerUser).Error
+	err := r.DB.Where("email = ?", registerUser.Email).First(registerUser).Error
 	if err == nil {
 		c.Status(http.StatusOK).JSON(&fiber.Map{"message": "Account has been already created"})
 		return nil
