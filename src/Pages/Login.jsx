@@ -110,7 +110,7 @@ function Login() {
                     <div
                         className='w-5/6 text-[12px] pb-5 underline'
                     >
-                        <a onClick={() => navigate("/doi-mat-khau")} className='cursor-pointer'>Đổi mật khẩu?</a>
+                        <a onClick={() => navigate("/doi-mat-khau")} className='cursor-pointer'>Bạn muốn đổi mật khẩu?</a>
                     </div>
 
                     <div className='w-5/6 pb-2'>
