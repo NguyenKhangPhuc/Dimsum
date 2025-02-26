@@ -48,8 +48,10 @@ func (r *Repository) SetupRoutes(app *fiber.App) {
 	app.Post("/add-order-detail", r.addOrderDetail)
 	app.Post("/get-orders", r.getAllOrders)
 	app.Post("/change-password", r.changePassword)
-	app.Get("/get", r.getAllApi)
 	app.Get("/dang-nhap", func(c *fiber.Ctx) error {
+		//If the route is = /dang-nhap meaning it is not an api, direct it to
+		//index.html file in dist file, and React router will manage route it to
+		//Account.jsx or Login.jsx
 		return c.SendFile("./dist/index.html")
 	})
 
@@ -365,20 +367,4 @@ func (r *Repository) changePassword(c *fiber.Ctx) error {
 		c.Status(http.StatusOK).JSON(&fiber.Map{"mssg": "user not found", "info": resetPW})
 		return nil
 	}
-}
-
-func (r *Repository) getAllApi(c *fiber.Ctx) error {
-	users := &[]models.User{}
-	err := r.DB.Find(users).Error
-	if err != nil {
-		c.Status(http.StatusBadRequest).JSON(
-			&fiber.Map{"mssg": "could not get"})
-		return err
-	}
-	c.Status(http.StatusOK).JSON(
-		&fiber.Map{
-			"message": "get success",
-			"data":    users,
-		})
-	return nil
 }
