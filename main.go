@@ -49,6 +49,9 @@ func (r *Repository) SetupRoutes(app *fiber.App) {
 	app.Post("/get-orders", r.getAllOrders)
 	app.Post("/change-password", r.changePassword)
 	app.Get("/get", r.getAllApi)
+	app.Get("*", func(c *fiber.Ctx) error {
+		return c.SendFile("./dist/index.html")
+	})
 }
 
 func main() {
