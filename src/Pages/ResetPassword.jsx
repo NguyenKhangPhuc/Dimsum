@@ -23,7 +23,6 @@ function ResetPassword() {
         } else {
             await axios.post(url + "change-password", { loginEmail, loginPassword, changedPassword })
                 .then((res) => {
-                    console.log(res)
                     if (res.data.mssg == "Change password successfully") {
                         alert("Change password successfully")
                         navigate("/dang-nhap")

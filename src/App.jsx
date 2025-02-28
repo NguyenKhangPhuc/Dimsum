@@ -35,16 +35,13 @@ function App() {
     // 4. Get the previous orders and its detail then send it with useContext
     userID = window.localStorage.getItem("userID")
     setUserID(userID)
-    console.log(userID)
     //------------------------------------------
     if (userID) {
       axios.post(url + "get-cart", { userID })
         .then((result) => {
-          console.log(result)
           if (result.data.mssg == "get successfully") {
             cart = result.data.info
             setCart(cart)
-            console.log(cart)
             for (var i = 0; i < cart.length; i++) {
               totalPrice += parseFloat(cart[i].price)
               setTotalPrice(totalPrice)
@@ -57,7 +54,6 @@ function App() {
         .then((result) => {
           if (result.data.mssg == "get user successfully") {
             setUserEmail(result.data.email)
-            console.log(result)
           }
         })
         .catch((err) => console.log(err))
@@ -69,7 +65,6 @@ function App() {
             setOrders(orders)
             ordersDetail = result.data.ordersDetail
             setOrderDetail(ordersDetail)
-            console.log(result)
           }
         })
         .catch(err => console.log(err))

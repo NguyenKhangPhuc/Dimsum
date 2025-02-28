@@ -22,7 +22,6 @@ function Slide() {
                 setSlideNumber(3)
             }
         }
-        console.log(slideNumber)
     }
     return (
         <div className='w-full h-auto bg-red-200 overflow-hidden relative'>

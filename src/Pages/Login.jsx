@@ -32,7 +32,6 @@ function Login() {
             if (!registerEmail.includes("@gmail.com")) {
                 alert("Account need @gmail.com part")
             } else {
-                console.log(registerEmail + " " + registerPassword)
                 await axios.post(url + "register", { registerEmail, registerPassword })
                     .then((result) => {
                         if (result.data.message == "Account has been already created") {
@@ -56,19 +55,15 @@ function Login() {
         //set the userID in the local storage to current userID then reload.
         //If not ==> Wrong password or email or both.
 
-        console.log(loginEmail + " pw: " + loginPassword)
         if (loginEmail == "" || loginPassword == "") {
             alert("Cannot sign in with empty account")
         } else {
             if (!loginEmail.includes("@gmail.com")) {
                 alert("Account need @gmail.com part")
             } else {
-                console.log(loginEmail + " " + loginPassword)
                 await axios.post(url + "login", { loginEmail, loginPassword })
                     .then((result) => {
-                        console.log(result)
                         if (result.data.mssg == "Login successfully") {
-                            console.log(result?.data.info.userID)
                             userID = result?.data.info.userID
                             setUserID(userID)
                             window.localStorage.setItem("userID", userID)

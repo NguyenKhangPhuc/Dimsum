@@ -40,18 +40,14 @@ function Payment() {
         } else {
             formData = { ...formData, userID, totalPrice }
             setFormData(formData)
-            console.log("Hello")
             await axios.post(url + "add-order", formData)
                 .then((result) => {
-                    console.log(result)
                     if (result.data.mssg == "add order successfully") {
                         const new_cart = cart.map((ele, index) => {
                             return { ...ele, cartOwner: result.data.order.cartID }
                         })
                         axios.post(url + "add-order-detail", new_cart)
-                            .then((result) => {
-                                console.log(result)
-                            })
+                            .then((result) => { console.log(result.data.mssg) })
                             .catch((err) => console.log(err))
                         navigate("/dang-nhap")
                         window.location.reload()

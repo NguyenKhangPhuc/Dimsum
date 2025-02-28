@@ -25,7 +25,7 @@ function Cart() {
         if (userID) {
             await axios.post(url + "delete-product", { productIndex: i, userID })
                 .then((result) => {
-                    console.log(result)
+                    console.log(result.data.mssg)
                 })
                 .catch(err => console.log(err))
         }

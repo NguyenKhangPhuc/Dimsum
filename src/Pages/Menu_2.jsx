@@ -31,7 +31,6 @@ function Menu_2() {
             return ele.title.toLowerCase().includes(value.toLowerCase())
         })
         setFullMenu(searchFilter)
-        console.log(searchFilter)
     }
     const handleClearSearch = () => {
         //Clear the search when the user click "x" icon, then setFullMenu = full_menu.

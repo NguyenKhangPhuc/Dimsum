@@ -30,12 +30,11 @@ const ProductDetail = ({ item, isExpanded, setIsExpanded, cart, setCart, totalPr
             const new_product = { ...singleProduct, note: note, ownerID: userID }
             await axios.post(url + "add-product", new_product)
                 .then((result) => {
-                    console.log(result)
+                    console.log(result.data.mssg)
                 })
                 .catch((err) => console.log(err))
             cart = [...cart, new_product]
             setCart(cart)
-            console.log(cart)
             setCustomerNote("")
             handleTurnOffExpanded()
         } else {

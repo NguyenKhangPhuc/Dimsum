@@ -23,7 +23,6 @@ function OrderTable() {
         })
         filteredOrders = filtered
         setFilteredOrders(filteredOrders)
-        console.log(filteredOrders)
         orderTotal = total
         setOrderTotal(orderTotal)
     }

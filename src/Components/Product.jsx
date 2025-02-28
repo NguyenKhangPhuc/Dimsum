@@ -18,7 +18,6 @@ export const handleExpanded = (index, isExpanded, setIsExpanded, setProductIndex
     isExpanded = true
     setIsExpanded(isExpanded)
     setProductIndex(index)
-    console.log(isExpanded)
 }
 
 function Product({ title, product, id, cart, setCart, totalPrice, setTotalPrice }) {
